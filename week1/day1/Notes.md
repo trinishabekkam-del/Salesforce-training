@@ -1,118 +1,135 @@
-###### **Salesforce CRM \& Customer 360 Notes:**
+# Salesforce Summer Program – Day 1 Notes
 
-###### 
+## Goal of Day 1
+The main goal of Day 1 is to understand:
+- What Salesforce is
+- What CRM means
+- Role of a Salesforce Developer
+- Basic Salesforce environment using Playground
 
-###### This video explains how Salesforce CRM and Customer 360 help businesses connect sales, marketing, and support teams on one platform. It reduces manual work, improves communication, and provides a better customer experience.
+---
 
-###### Key Points:
+# What is Salesforce?
+Salesforce is a cloud-based CRM platform used by companies to manage customers, sales, business processes, and communication in one system.
 
-* ###### Disconnected systems create inefficiency and poor collaboration.
-* ###### Customer 360 gives a unified view of customer data.
-* ###### Automation reduces repetitive tasks and saves time.
-* ###### AI helps predict outcomes and improve decision-making.
-* ###### Real-time data helps teams respond quickly.
+It helps organizations:
+- Track customer information
+- Manage sales processes
+- Improve customer relationships
+- Automate business tasks
+- Generate reports and dashboards
 
-###### ROI Formula:
+---
 
-###### &#x20;                 ROI=((Net Income−Investment Cost)​/Investment Cost)x100
+# What is CRM?
+CRM stands for Customer Relationship Management.
 
-###### Benefits:
+It is a system used to:
+- Store customer data
+- Track interactions with customers
+- Manage leads and sales
+- Improve customer service
+- Build long-term customer relationships
 
-* ###### Increased productivity
-* ###### Better customer satisfaction
-* ###### Faster workflows
-* ###### Reduced operational costs
-* ###### Higher revenue growth
+---
 
-###### 
+# Salesforce Developer Role
+A Salesforce Developer:
+- Builds applications on Salesforce
+- Creates automation and workflows
+- Customizes objects and fields
+- Writes Apex code and Lightning components
+- Improves business processes
 
-###### Salesforce Customer 360 improves business efficiency by combining automation, AI, and real-time data to help teams work smarter and deliver better customer experiences.
+---
 
-###### 
+# Salesforce Playground
+Playground is a practice environment provided by Salesforce.
 
-###### **Salesforce CRM Basics – Practical Usage**
+It is used to:
+- Learn Salesforce safely
+- Practice hands-on tasks
+- Complete Trailhead challenges
+- Test features without affecting real systems
 
-###### 
+---
 
-###### This video explains the basics of using Salesforce CRM through the Salesforce Sales App. It demonstrates how to create a free developer account, manage leads, contacts, accounts, opportunities, tasks, and dashboards within Salesforce.
+# Important Salesforce Concepts
 
-###### Key Points:
+## Lead
+A person or organization showing interest in a business.
 
-* ###### Salesforce Developer Edition can be used for free learning.
-* ###### Sales App is mainly used for CRM activities.
-* ###### Leads represent potential customers.
-* ###### Leads can be converted into:
+### Example:
+A student filling an admission inquiry form.
 
-###### &#x20;             Accounts (Companies)
+---
 
-###### &#x20;             Contacts (People)
+## Account
+Represents a company or organization.
 
-###### &#x20;             Opportunities (Sales deals)
+### Example:
+ABC College
 
-* ###### Salesforce tracks the complete lifecycle of leads and opportunities.
-* ###### Tasks and reminders help manage daily work.
-* ###### Dashboards provide reports and business insights.
-* ###### Salesforce helps organize customer data efficiently in one platform.
+---
 
-###### 
+## Contact
+Represents a person related to an account.
 
-###### The video provides a beginner-friendly introduction to Salesforce CRM and explains how businesses use Salesforce to manage customer relationships, sales processes, and workflow tracking efficiently.
+### Example:
+Rahul Sharma (Student)
 
-###### 
+---
 
-###### **Salesforce CRM Beginner Training – Notes**
+## Opportunity
+Represents a potential business deal or process.
 
-###### 
+### Example:
+Student admission process
 
-###### This video explains the Salesforce CRM interface, objects, leads, contacts, accounts, opportunities, customization, and sales stages. It focuses on how Salesforce helps manage customer data, sales pipelines, and business processes efficiently.
+---
 
-###### Key Points:
+# Business Flow
+Lead → Contact → Opportunity → Customer
 
-* ###### Salesforce Lightning interface provides dashboards, search, notifications, and quick settings.
-* ###### Objects are digital representations of real-world entities.
-* ###### Main Salesforce objects:
+### Explanation:
+1. A person first becomes a Lead.
+2. After communication, the lead becomes a Contact.
+3. If there is a business possibility, it becomes an Opportunity.
+4. After successful completion, the person becomes a Customer.
 
-###### &#x20;         Leads → Unqualified opportunities
+---
 
-###### &#x20;         Contacts → People
+# Real-World Mapping (College Admission System)
 
-###### &#x20;         Accounts → Organizations/Companies
+| Salesforce Object | Real Example |
+|---|---|
+| Lead | Student Inquiry |
+| Account | College |
+| Contact | Student |
+| Opportunity | Admission Process |
 
-###### &#x20;         Opportunities → Qualified deals
+---
 
-* ###### Leads can be converted into:
+# Key Learnings from Day 1
+- Salesforce is a powerful CRM platform
+- CRM helps manage customer relationships
+- Salesforce uses objects to store data
+- Leads can convert into opportunities
+- Playground is important for practice
+- Understanding business workflow is very important
 
-###### &#x20;         Account
+---
 
-###### &#x20;         Contact
+# Trailhead Modules Covered
+1. Salesforce Values: Quick Look
+2. Salesforce Developer: Quick Look
+3. Salesforce CRM
+4. Trailhead Playground Management
 
-###### &#x20;         Opportunity
+---
 
-* ###### Dashboards and list views help track records easily.
-* ###### Kanban view helps visualize sales stages and workflows.
-* ###### Salesforce supports automation, tasks, and reporting.
-* ###### Object Manager is used for customization like fields, layouts, and buttons.
-* ###### Sales stages should match real business processes.
-
-###### 
-
-###### The video gives a complete beginner overview of Salesforce CRM, explaining how businesses organize leads, customers, opportunities, and workflows using Salesforce objects, dashboards, and customization features.
-
-###### 
-
-###### 
-
-###### &#x20;**Overall Conclusion**
-
-###### 
-
-###### These three videos provided a strong beginner-level understanding of Salesforce CRM and Customer 360. They explained how Salesforce helps businesses manage leads, contacts, accounts, opportunities, customer relationships, and sales processes efficiently on a single platform.
-
-###### 
-
-###### The videos also highlighted the importance of automation, AI, real-time data, dashboards, and customization in improving productivity, collaboration, customer experience, and ROI. Overall, Salesforce CRM simplifies business operations by connecting teams, organizing customer data, and helping companies make smarter business decisions through an efficient and scalable system.
-
-###### 
-
-###### 
-
+# Important Reminder
+- Focus on understanding concepts
+- Do not rush badges
+- Practice regularly in Playground
+- Learn business flow clearly
