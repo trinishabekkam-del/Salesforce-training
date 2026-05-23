@@ -1,5 +1,5 @@
 
-# Salesforce Summer Program — Day 8 Detailed Notes
+# Salesforce Summer Program — Day 8 
 # Lightning Web Components (LWC)
 
 ---
