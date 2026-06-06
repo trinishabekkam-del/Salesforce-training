@@ -1,244 +1,519 @@
-# Day 17 – Agentforce & Enterprise AI
+# Recruitment Management System
 
-## 📌 Overview
+## Salesforce Summer Program - Day 18 Final Project Phase 1
 
-This project focuses on understanding how AI agents and autonomous systems are transforming enterprise software systems using Salesforce Agentforce.
+### Project Overview
 
-The activities explored:
+This project was developed as part of the Salesforce Summer Program Day 18 activity. The objective of this phase was to integrate all major Salesforce concepts learned during the training and apply them to a realistic business scenario.
 
-- Agentforce concepts
-- AI-assisted workflows
-- Enterprise automation
-- AI + Apex + Flow integration
-- Risks and governance of AI systems
+The Recruitment Management System helps organizations streamline their hiring process by managing job positions, applicant records, interviews, approvals, and recruitment analytics within Salesforce.
 
 ---
 
-# 🚀 Modules Completed
+# Task 1 - Final Architecture Design
 
-## 1. Become an Agentblazer Champion 2026
+## Application Architecture
 
-### Topics Learned
-
-- Agentic AI concepts
-- Salesforce AI ecosystem
-- Enterprise AI transformation
-- Responsible AI usage
-
----
-
-## 2. Agentforce Vibes Extension
-
-### Topics Learned
-
-- AI-assisted development workflow
-- VS Code integration
-- Productivity enhancement using AI tools
-- Faster enterprise application development
-
----
-
-## 3. Build an Agent Using Agentforce DX
-
-### Topics Learned
-
-- AI agents
-- Topics and actions
-- Prompt-driven workflows
-- Agent configuration and automation
-
----
-
-## 4. Agent Customization with Apex
-
-### Topics Learned
-
-- Extending AI agents using Apex
-- Enterprise customization
-- Integrating AI with business logic
-- Flow and Apex integration
-
----
-
-# 🤖 AI Agent Use Cases
-
-# 🎓 College Management
-
-- AI Attendance Assistant
-- AI Timetable Generator
-- Student Performance Analysis Agent
-- AI Fee Reminder System
-- Smart Campus Helpdesk
-
----
-
-# 💼 Placements
-
-- AI Resume Screening
-- Placement Recommendation System
-- Interview Preparation Assistant
-- Job Matching Agent
-- Placement Analytics Dashboard
-
----
-
-# 🧑‍💼 Recruitment
-
-- Automated Candidate Shortlisting
-- AI Interview Scheduling
-- Candidate Skill Evaluation
-- AI Communication Assistant
-- Recruitment Workflow Automation
-
----
-
-# 🧑‍🎓 Student Support
-
-- AI Course Advisor
-- Student Query Chat Agent
-- Mental Wellness Support Assistant
-- Scholarship Recommendation Agent
-- Learning Progress Tracker
-
----
-
-# 👨‍🏫 Faculty Operations
-
-- Automated Leave Management
-- AI Assignment Evaluator
-- Faculty Workload Balancer
-- Smart Meeting Scheduler
-- AI Research Assistant
-
----
-
-# 🔄 AI Workflow Explanation
-
-## Enterprise AI Workflow
+The system follows a layered architecture approach where each layer has a specific responsibility.
 
 ```text
-User asks a question
-⬇
-AI Agent receives the request
-⬇
-Flow/Apex processes the logic
-⬇
-Database interaction occurs
-⬇
-AI generates a response
-⬇
-System executes the required action
+User Interface (LWC)
+        │
+        ▼
+Validation Rules
+        │
+        ▼
+Record Triggered Flows
+        │
+        ▼
+Apex Classes & Triggers
+        │
+        ▼
+Salesforce Database
+        │
+        ▼
+Reports & Dashboards
 ```
 
-## Explanation
+### Why this Architecture?
 
-AI agents act as intelligent automation layers inside enterprise systems. They understand user intent, interact with workflows, access databases, and execute business operations automatically.
-
-Salesforce Agentforce integrates:
-
-- AI reasoning
-- Salesforce Flow
-- Apex business logic
-- Enterprise data
-- Automation systems
-
-This enables organizations to create intelligent workflows and autonomous systems.
+- Separates frontend and backend logic
+- Improves maintainability
+- Supports future scalability
+- Follows enterprise application design principles
 
 ---
 
-# ⚠️ Risks of Enterprise AI
+# Objects and Relationships
 
-## 1. Hallucinations
+## Position Object
 
-AI may generate incorrect or fake information.
+Stores information about job openings.
 
-## 2. Wrong Automation
+### Fields
 
-Incorrect workflows can trigger invalid business actions.
-
-## 3. Privacy Risks
-
-Sensitive enterprise data may be exposed if security is weak.
-
-## 4. Bias
-
-AI systems may produce unfair or biased decisions.
-
-## 5. Incorrect Approvals
-
-Autonomous systems may approve invalid transactions.
-
-## 6. Over-Automation
-
-Excessive automation may reduce human oversight.
+- Position Name
+- Department
+- Required Skills
+- Vacancy Count
 
 ---
 
-# 🛡️ Why Enterprises Need AI Guardrails
+## Applicant Object
 
-Enterprises must carefully control AI systems because:
+Stores candidate information.
 
-- AI can make incorrect decisions
-- Business data is highly sensitive
-- Automated actions may impact customers
-- Security and compliance are critical
-- Human validation is required for important actions
+### Fields
 
-AI systems should always include:
-
-- approval processes
-- validation rules
-- monitoring systems
-- security controls
-- ethical guidelines
+- Applicant Name
+- Email
+- Phone Number
+- Experience
 
 ---
 
-# 🔮 Reflection
+## Application Object
 
-## How AI Agents May Change Enterprise Software Development in the Next 5 Years
+Stores application records submitted by applicants.
 
-AI agents will significantly transform enterprise software development by:
+### Fields
 
-- automating repetitive tasks
-- improving customer support
-- accelerating software delivery
-- enabling intelligent decision-making
-- assisting developers with code generation
-- enhancing workflow automation
+- Application Number
+- Application Status
+- Applied Date
 
-Future enterprise systems will likely combine:
+### Relationships
 
-- AI reasoning
-- automation
-- real-time analytics
-- autonomous workflows
-- intelligent business operations
-
-However, organizations must balance automation with governance, security, and human oversight.
+- Applicant → Application (Master-Detail)
+- Position → Application (Lookup)
 
 ---
 
-# 📚 Revision Questions
+## Interview Object
 
-1. What is an AI agent?
-2. How is Agentforce different from a chatbot?
-3. Why do AI agents need enterprise data?
-4. Why should AI systems have guardrails?
-5. What risks exist in autonomous systems?
-6. Why should enterprises carefully validate AI actions?
-7. How can AI integrate with Flows and Apex?
-8. Why is AI becoming important in enterprise software?
+Stores interview details and outcomes.
+
+### Fields
+
+- Interview Date
+- Interview Result
+- Feedback
+
+### Relationship
+
+- Application → Interview
 
 ---
 
-# ✅ Outcome
+# Validation Rules
 
-By completing this project, I learned:
+The following validation rules are implemented to ensure data quality.
 
-- What Agentforce is
-- How enterprise AI agents work
-- AI + Flow + Apex integration
-- Risks and governance of AI systems
-- The future direction of enterprise software
--
+## Applicant Email Validation
+
+Purpose:
+
+Prevent invalid email formats.
+
+```formula
+NOT(
+CONTAINS(Email__c,"@")
+)
+```
+
+Error Message:
+
+```text
+Please enter a valid email address.
+```
+
+---
+
+## Experience Validation
+
+Purpose:
+
+Prevent negative experience values.
+
+```formula
+Experience__c < 0
+```
+
+Error Message:
+
+```text
+Experience cannot be negative.
+```
+
+---
+
+# Formula Fields
+
+## Applicant Score
+
+Purpose:
+
+Calculate a simple candidate score based on experience.
+
+```formula
+Experience__c * 10
+```
+
+Example:
+
+- 2 Years Experience = 20 Score
+- 5 Years Experience = 50 Score
+
+---
+
+# Flow Automation
+
+## Applicant Registration Flow
+
+### Flow Type
+
+Record Triggered Flow
+
+### Process
+
+1. Applicant record is created.
+2. System validates applicant information.
+3. Application record is automatically generated.
+4. HR receives notification.
+5. Dashboard metrics are updated.
+
+### Benefits
+
+- Reduces manual work
+- Improves efficiency
+- Maintains data consistency
+
+---
+
+# Approval Process
+
+## Candidate Selection Approval
+
+The approval process ensures that selected candidates are reviewed before hiring.
+
+### Approval Workflow
+
+1. HR submits candidate profile.
+2. Hiring Manager reviews application.
+3. Manager approves or rejects candidate.
+4. Applicant status is updated automatically.
+
+### Approval States
+
+- Pending
+- Approved
+- Rejected
+
+---
+
+# Apex Logic
+
+## ApplicantController.cls
+
+Purpose:
+
+Handle custom business logic related to applicant validation.
+
+```apex
+public with sharing class ApplicantController {
+
+    @AuraEnabled
+    public static String validateApplicant(Integer exp){
+
+        if(exp < 0){
+            return 'Invalid Experience';
+        }
+
+        return 'Valid Applicant';
+    }
+}
+```
+
+### Why Apex?
+
+Apex allows implementation of business requirements that cannot be achieved using standard Salesforce automation tools alone.
+
+---
+
+# Trigger Logic
+
+## ApplicantTrigger
+
+Purpose:
+
+Prevent duplicate applicant records based on email address.
+
+```apex
+trigger ApplicantTrigger on Applicant__c (before insert) {
+
+    Set<String> emails = new Set<String>();
+
+    for(Applicant__c a : Trigger.new){
+        emails.add(a.Email__c);
+    }
+
+    for(Applicant__c a : Trigger.new){
+        if(emails.contains(a.Email__c)){
+            a.addError('Duplicate Email Found');
+        }
+    }
+}
+```
+
+### Business Value
+
+- Prevents duplicate records
+- Maintains clean data
+- Improves reporting accuracy
+
+---
+
+# LWC Components
+
+## applicantForm
+
+Purpose:
+
+Allow users to submit applications.
+
+Features:
+
+- Applicant Registration
+- Form Validation
+- Record Submission
+
+---
+
+## applicantList
+
+Purpose:
+
+Display applicant information.
+
+Features:
+
+- Search Applicants
+- Filter Records
+- View Application Details
+
+---
+
+## interviewDashboard
+
+Purpose:
+
+Provide recruitment insights.
+
+Features:
+
+- Interview Statistics
+- Candidate Progress Tracking
+- Recruitment KPIs
+
+---
+
+# Component Communication
+
+### Parent Component
+
+```text
+interviewDashboard
+```
+
+### Child Components
+
+```text
+applicantForm
+applicantList
+```
+
+### Communication Method
+
+```text
+Custom Events
+```
+
+This allows child components to send information back to the parent component efficiently.
+
+---
+
+# Task 2 - End-to-End Workflow Thinking
+
+## Candidate Recruitment Workflow
+
+### Step 1 - User Interface
+
+Applicant submits application through Lightning Web Component.
+
+↓
+
+### Step 2 - Validation Layer
+
+Validation Rules verify email and experience values.
+
+↓
+
+### Step 3 - Flow Layer
+
+Record Triggered Flow creates related records.
+
+↓
+
+### Step 4 - Apex Layer
+
+Business logic validates application data.
+
+↓
+
+### Step 5 - Database Layer
+
+Records are stored in Salesforce objects.
+
+↓
+
+### Step 6 - Notification Layer
+
+HR receives email notification.
+
+↓
+
+### Step 7 - Approval Layer
+
+Manager reviews and approves candidate.
+
+↓
+
+### Step 8 - Analytics Layer
+
+Recruitment dashboard updates automatically.
+
+---
+
+# Reports and Analytics
+
+The following reports can be generated:
+
+- Applications by Position
+- Interview Success Rate
+- Monthly Recruitment Summary
+- Candidate Selection Report
+
+### Dashboard Components
+
+- Open Positions
+- Total Applicants
+- Selected Candidates
+- Rejected Candidates
+- Interviews Scheduled
+
+---
+
+# Task 3 - Scaling Considerations
+
+Assume the application is being used by 100,000 users.
+
+## Performance Challenges
+
+Potential Issues:
+
+- Slow queries
+- Large data volume
+
+Solutions:
+
+- Indexed fields
+- Optimized SOQL queries
+
+---
+
+## Security Challenges
+
+Potential Issues:
+
+- Unauthorized access
+
+Solutions:
+
+- Profiles
+- Permission Sets
+- Field-Level Security
+
+---
+
+## Duplicate Data Challenges
+
+Potential Issues:
+
+- Duplicate applicants
+
+Solutions:
+
+- Matching Rules
+- Duplicate Rules
+
+---
+
+## User Interface Challenges
+
+Potential Issues:
+
+- Slow page loading
+
+Solutions:
+
+- Pagination
+- Lazy Loading
+- Efficient Apex Calls
+
+---
+
+## Automation Challenges
+
+Potential Issues:
+
+- Too many flows
+- Recursive triggers
+
+Solutions:
+
+- Flow optimization
+- Bulkified Apex logic
+
+---
+
+# Task 4 - AI Extension Thinking
+
+## AI Resume Analyzer
+
+Agentforce can analyze resumes and rank candidates based on skills, experience, and job requirements.
+
+### Benefits
+
+- Faster screening
+- Improved hiring decisions
+
+---
+
+## AI Interview Assistant
+
+Agentforce can generate interview questions automatically based on applicant skills and job requirements.
+
+### Benefits
+
+- Reduced preparation time
+- Consistent interview process
+
+---
+
+# Task 5 - Reflection
+
+Throughout this Salesforce Summer Program, I learned how enterprise applications are designed using multiple layers such as frontend, backend, automation, security, and analytics.
+
+This project helped me understand how Salesforce technologies including Objects, Relationships, Validation Rules, Flows, Approval Processes, Apex, Triggers, Reports, Dashboards, and Lightning Web Components work together to create a complete business solution.
+
+The most important takeaway from this project was learning to think beyond coding and start thinking like a Salesforce Solution Developer who considers scalability, security, maintainability, and user experience while designing applications.
